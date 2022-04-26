@@ -11,7 +11,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
  router.use('/pokemon', pokemonRouter);
-// router.use('/type', typeRouter);
+ router.use('/types', typeRouter);
 
 router.use('/', (req, res) => {
     res.status(200).send({message: "Ruta principal conectada exitosamente"})
