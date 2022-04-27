@@ -6,8 +6,9 @@ const getTypes = async (req, res, next) => {
     const tiposUrl = await axios.get("https://pokeapi.co/api/v2/type")
     const results = tiposUrl.data.results // [{name, url}, {name, url}, {name, url}, ..]
     const tiposName = results.map(tipo => tipo.name)
-    tiposName.forEach(name => {Type.findOrCreate({
-        where: {name: name}
+    tiposName.forEach(name => {
+        Type.findOrCreate({
+            where: {name: name}
         }          
      )})
      const allTipos = await Type.findAll()    
