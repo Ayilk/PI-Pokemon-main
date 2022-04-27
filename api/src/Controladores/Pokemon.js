@@ -27,11 +27,11 @@ const allPokemon = (req, res, next) => {
         console.log(pokemonDbResults)
        return axios.get(pokemonApiResults.data.next)
         .then(n => {
-            const union = results1.concat(...n.data.results, ...pokemonDbResults)
+            const union = results1.concat(n.data.results)
             const dat = union.map(el => axios.get(el.url))// results = [{}, {},...] results.map => Me trae un arreglo de peticiones[axios.get(),axios.get,...]
                return Promise.all(dat).then(                                 //Le paso ese arreglo de peticiones al Promise.all
                 peticiones => {                                    
-                    const pokemons = peticiones.map(url => {        // Cada petición tiene una url que me da acceso a la información de cada pokemon
+                    const pokemon = peticiones.map(url => {        // Cada petición tiene una url que me da acceso a la información de cada pokemon
                         const p=url.data
                         return{
                             id: p.id,
@@ -45,7 +45,7 @@ const allPokemon = (req, res, next) => {
                             imagen: p.sprites.other.dream_world.front_default,
                             types: p.types.map(el=> el.type.name)                    
                     }})  
-                    
+                    const pokemons = pokemon.concat(pokemonDbResults)
                     if(id){
                         let pokemonId = pokemons.filter(el => el.id == id);
                         pokemonId.length ? res.status(200).send(pokemonId) : res.status(400).send("Pokemon no encontrado")
