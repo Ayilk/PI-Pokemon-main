@@ -45,7 +45,9 @@ const allPokemon = (req, res, next) => {
                             imagen: p.sprites.other.dream_world.front_default,
                             types: p.types.map(el=> el.type.name)                    
                     }})  
+                  
                     const pokemons = pokemon.concat(pokemonDbResults)
+                    
                     if(id){
                         let pokemonId = pokemons.filter(el => el.id == id);
                         pokemonId.length ? res.status(200).send(pokemonId) : res.status(400).send("Pokemon no encontrado")
@@ -65,9 +67,9 @@ const allPokemon = (req, res, next) => {
 }
 
 const addPokemon = async (req, res, next) => {
-    const {name, hp, attack, defense, speed, height, weight, imagen, types} = req.body;
+    const {name, hp, attack, defense, speed, height, weight, imagen, types, createInDb} = req.body;
     const pokemonCreated = await Pokemon.create({
-        name, hp, attack, defense, speed, height, weight, imagen,
+        name, hp, attack, defense, speed, height, weight, imagen, createInDb
     })
     const tipoDb = await Type.findAll({
         where: {
@@ -78,7 +80,18 @@ const addPokemon = async (req, res, next) => {
     res.send("Pokemon creado con éxito")
 }
 
+const pokemonDelete = (req, res, next) => {
+    const id = req.params.id;
+    return Pokemon.destroy({
+        where: {
+            id
+        }
+    }).then(() => {res.status(200).send("Pokemón eliminado con éxito")})
+    .catch(error => next(error))
+}
+
 module.exports = {
     allPokemon,
-    addPokemon
+    addPokemon,
+    pokemonDelete
 }
