@@ -1,6 +1,7 @@
 const initialState = {
     pokemons: [],
     allPokemons: [],
+    types: []
 }
 
 function rootReducer (state=initialState, action){

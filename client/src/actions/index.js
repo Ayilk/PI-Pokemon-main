@@ -11,6 +11,16 @@ export function getPokemons(){
     }
 }
 
+export function getTipos(){
+    return async function(dispatch){
+        var json = await axios.("http://localhost:3001/types")
+        return dispatch({
+            type: 'GET_TYPES',
+            payload: json.data
+        })
+    }
+}
+
 export function filterCreated(payload){
     return{
         type: 'FILTER_CREATED',
