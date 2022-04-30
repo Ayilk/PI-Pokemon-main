@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { filterCreated, getPokemons } from '../actions';
+import { filterCreated, getPokemons, orderByAttack, orderByName } from '../actions';
 import Card from './Card';
 import Paginado from './Paginado';
 import Filtros from './Filtros';
@@ -11,6 +11,7 @@ export default function Home(){
     const allPokemons = useSelector(state => state.pokemons);
     const [ paginaActual, setPaginaActual ] = useState(1);
     const [ pokemonPorPagina, setPokemonPorPagina] = useState(12);
+    const [ orden, setOrden ] = useState('');
     const indiceUltimoPokemon = paginaActual*pokemonPorPagina; //1*12 = 12
     const indicePrinmerPokemon = indiceUltimoPokemon-pokemonPorPagina; // 12-12 = 0
     const pokemonActual = allPokemons.slice(indicePrinmerPokemon, indiceUltimoPokemon); // []
@@ -27,6 +28,18 @@ export default function Home(){
     function handleFilterCreated(e){
         dispatch(filterCreated(e.target.value))
     }
+    function handleOrderByName(e){
+        e.preventDefault();
+        dispatch(orderByName(e.target.value));
+        setPaginaActual(1);
+        setOrden(`Ordenado ${e.target.value}`)
+    }
+    function handleOrderByAttack(e){
+        e.preventDefault(e);
+        dispatch(orderByAttack(e.target.value));
+        setPaginaActual(1);
+        setOrden(`Ordenado ${e.target.value}`)
+    }
 
     return (
         <div>
@@ -36,6 +49,8 @@ export default function Home(){
             </button>
             <Filtros
                 handleFilterCreated={handleFilterCreated}
+                handleOrderByName={handleOrderByName}
+                handleOrderByAttack={handleOrderByAttack}
             />
             
                 {

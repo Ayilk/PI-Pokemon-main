@@ -17,3 +17,17 @@ export function filterCreated(payload){
         payload
     }
 }
+
+export function orderByName(payload){
+    return{
+        type: 'ORDER_BY_NAME',
+        payload
+    }
+}
+
+export function orderByAttack(payload){
+    return{
+        type: 'ORDER_BY_ATTACK',
+        payload
+    }
+}
