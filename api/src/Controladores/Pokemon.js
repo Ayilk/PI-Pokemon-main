@@ -11,7 +11,7 @@ const allPokemon = (req, res, next) => {
     const pokemonDb = Pokemon.findAll({
         include: {
             model: Type,
-            attributes: ['name'],
+            attributes: ["name"],
             through: {
                 attributes: []
             }
@@ -47,6 +47,7 @@ const allPokemon = (req, res, next) => {
                     }})  
                   
                     const pokemons = pokemon.concat(pokemonDbResults)
+                  
                     
                     if(id){
                         let pokemonId = pokemons.filter(el => el.id == id);

@@ -5,6 +5,7 @@ import { filterCreated, getPokemons, orderByAttack, orderByName } from '../actio
 import Card from './Card';
 import Paginado from './Paginado';
 import Filtros from './Filtros';
+import SearchBar from './SearchBar';
 
 export default function Home(){
     const dispatch = useDispatch();
@@ -52,6 +53,7 @@ export default function Home(){
                 handleOrderByName={handleOrderByName}
                 handleOrderByAttack={handleOrderByAttack}
             />
+            <SearchBar/>
             
                 {
                     pokemonActual?.map(p => {

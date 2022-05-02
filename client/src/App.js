@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandingPage from './componentes/LandingPage';
 import Home from './componentes/Home'; 
+import PokemonCreate from './componentes/PokemonCreate';
+import Detail from './componentes/Detail';
 
 
 function App() {
@@ -12,8 +14,8 @@ function App() {
       <Routes>
            <Route exact path='/' element={ <LandingPage/> } />
            <Route path='/home' element={ <Home/> } />
-           {/* <Route path='/pokemon' element={ <DogCreate/> } />
-           <Route path='/pokemon/:id' element={ <Detail/> } /> */}
+           <Route path='/pokemon' element={ <PokemonCreate/> } />
+           <Route path='/home/:id' element={ <Detail/> } />
         </Routes>
     </div>
     </BrowserRouter>
