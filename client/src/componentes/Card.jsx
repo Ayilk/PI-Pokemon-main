@@ -1,23 +1,17 @@
 import React from "react";
+import {capitalizarPrimeraLetra} from "../utils"
 
 
 export default function Card ({name, imagen, types}){
     return(
         <div>
-            <h3>{name}</h3>
+            <div>{name}</div>
             <img src={imagen} 
-                 alt = "Imagen no encontrada"
-                 width="200px"
-                 height="250px"
+                 alt = "Imagen no encontrada"                 
             />
-            <h5> {types?.map((type) => {
-                return (
-                  <p key={type}>
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
-                  </p>
-                );
-              })}
-            </h5>     
+            <div> {types?.map((type) => { 
+                return ( capitalizarPrimeraLetra(type))}).join(", ")}
+            </div>     
         </div>
     )
 }

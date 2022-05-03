@@ -11,9 +11,9 @@ export function getPokemons(){
     }
 }
 
-export function getTipos(){
+export function getTypes(){
     return async function(dispatch){
-        var json = await axios("http://localhost:3001/types")
+        var json = await axios.get("http://localhost:3001/types")
         return dispatch({
             type: 'GET_TYPES',
             payload: json.data
@@ -63,6 +63,13 @@ export function orderByName(payload){
 export function orderByAttack(payload){
     return{
         type: 'ORDER_BY_ATTACK',
+        payload
+    }
+}
+
+export function filterByType(payload){
+    return{
+        type: 'FILTER_BY_TYPE',
         payload
     }
 }

@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { filterCreated, getPokemons, orderByAttack, orderByName } from '../actions';
+import { filterByType, filterCreated, getPokemons, getTypes, orderByAttack, orderByName } from '../actions';
 import Card from './Card';
 import Paginado from './Paginado';
 import Filtros from './Filtros';
@@ -9,17 +9,22 @@ import SearchBar from './SearchBar';
 
 export default function Home(){
     const dispatch = useDispatch();
-    const allPokemons = useSelector(state => state.pokemons);
+
+    const allPokemons = useSelector( state => state.pokemons );
+    const allTypes = useSelector( state => state.types );
+
     const [ paginaActual, setPaginaActual ] = useState(1);
     const [ pokemonPorPagina, setPokemonPorPagina] = useState(12);
     const [ orden, setOrden ] = useState('');
+
     const indiceUltimoPokemon = paginaActual*pokemonPorPagina; //1*12 = 12
     const indicePrinmerPokemon = indiceUltimoPokemon-pokemonPorPagina; // 12-12 = 0
     const pokemonActual = allPokemons.slice(indicePrinmerPokemon, indiceUltimoPokemon); // []
     const paginado = (numeroDePagina) => { setPaginaActual(numeroDePagina)}
 
     useEffect(() => {
-        dispatch(getPokemons());
+        dispatch(getPokemons())
+        dispatch(getTypes())
     }, [dispatch]);
 
     function handleClick(e){
@@ -41,6 +46,12 @@ export default function Home(){
         setPaginaActual(1);
         setOrden(`Ordenado ${e.target.value}`)
     }
+    function handleFilterTypes(e){
+        e.preventDefault();
+        dispatch(filterByType(e.target.value))
+        setPaginaActual(1)
+        setOrden(`Ordenado ${e.target.value}`)
+    }
 
     return (
         <div>
@@ -52,6 +63,8 @@ export default function Home(){
                 handleFilterCreated={handleFilterCreated}
                 handleOrderByName={handleOrderByName}
                 handleOrderByAttack={handleOrderByAttack}
+                handleFilterTypes={handleFilterTypes}
+                allTypes={allTypes}
             />
             <SearchBar/>
             

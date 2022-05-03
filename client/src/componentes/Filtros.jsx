@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function Filtros({handleFilterCreated, handleOrderByName, handleOrderByAttack}){
+
+export default function Filtros({allTypes, handleFilterCreated, handleOrderByName, handleOrderByAttack, handleFilterTypes}){
+    
     return(
         <div>
                 <select onChange={e => handleOrderByName(e)}> //Orden Alfabético
@@ -16,6 +18,11 @@ export default function Filtros({handleFilterCreated, handleOrderByName, handleO
                     <option value='Created'>Creados</option>
                     <option value='Api'>Existentes</option>
                 </select>
+                <select  onChange={e => handleFilterTypes(e)}> // Filtrado por tipos
+                    <option value="all"> Todos </option>               
+                        {allTypes?.map((t) => (
+                        <option key={t.name} value={t.name}> {t.name} </option>))}
+                </select>  
                 </div>
     )
 

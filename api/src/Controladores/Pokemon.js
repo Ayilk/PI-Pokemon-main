@@ -47,7 +47,7 @@ const allPokemon = (req, res, next) => {
                     }})  
                   
                     const pokemons = pokemon.concat(pokemonDbResults)
-                  
+                  //const pokemons=pokemonDbResults
                     
                     if(id){
                         let pokemonId = pokemons.filter(el => el.id == id);

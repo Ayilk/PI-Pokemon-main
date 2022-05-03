@@ -26,7 +26,8 @@ export default function Detail(props){
                     <div>Fuerza:{myPokemon[0].attack}</div>
                     <div>Defensa:{myPokemon[0].defense}</div>
                     <div>Altura:{myPokemon[0].height}</div>
-                    <div>Peso:{myPokemon[0].weight}</div>                    
+                    <div>Peso:{myPokemon[0].weight}</div> 
+                    <div>Velocidad:{myPokemon[0].speed}</div>                   
                     <div>Tipo: {myPokemon[0].types?.map((type) => {
                            return ( capitalizarPrimeraLetra(type)+ ", ");})}</div>
                 </div> : <p>Loading...</p>
