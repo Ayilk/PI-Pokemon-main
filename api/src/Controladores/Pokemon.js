@@ -22,7 +22,7 @@ const allPokemon = (req, res, next) => {
    
   return  Promise.all([pokemonDb, pokemonApi]) 
    .then(r => { 
-       const [ pokemonDbResults, pokemonApiResults ] = r
+        const [ pokemonDbResults, pokemonApiResults ] = r
         const results1 = pokemonApiResults.data.results
         console.log(pokemonDbResults)
        return axios.get(pokemonApiResults.data.next)

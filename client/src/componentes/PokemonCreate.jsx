@@ -74,13 +74,13 @@ export default function PokemonCreate(){
                 <input type='text' vallue={input.imagen} name="Imagen" placeholder="url" onChange={e => handleChange(e)}/>
                 
                 <label>Tipo</label>
-                {/* <select onChange={e => handleSelect(e)}>
+                <select onChange={e => handleSelect(e)}>
                 {
                     types.map((tipo, id) => {
                         return(<option key={id} value={tipo.name}>{tipo.name}</option>)
                     })
                 }
-                </select> */}
+                </select>
                 <button type='submit'>Crear Pokemon!!</button>
             </form>
            <Link to='/home'><button>Volver</button></Link>

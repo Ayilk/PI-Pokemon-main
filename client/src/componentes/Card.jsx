@@ -1,5 +1,5 @@
 import React from "react";
-import {capitalizarPrimeraLetra} from "../utils"
+import { capitalizarPrimeraLetra } from "../utils"
 
 
 export default function Card ({name, imagen, types}){
@@ -9,8 +9,9 @@ export default function Card ({name, imagen, types}){
             <img src={imagen} 
                  alt = "Imagen no encontrada"                 
             />
-            <div> {types?.map((type) => { 
-                return ( capitalizarPrimeraLetra(type))}).join(", ")}
+            <div> 
+                {types?.map((type) => { 
+                return ( type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type))}).join(", ")}
             </div>     
         </div>
     )

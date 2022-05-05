@@ -76,7 +76,7 @@ export default function Home(){
                                     <Card 
                                        name={p.name}
                                        imagen={p.imagen}
-                                       types={p.types}
+                                       types={p.types }
                                     />   
                                 </Link>
                             </div>
