@@ -7,7 +7,9 @@ export default function Card ({name, imagen, types}){
         <div>
             <div>{name}</div>
             <img src={imagen} 
-                 alt = "Imagen no encontrada"                 
+                 alt = "Imagen no encontrada"   
+                 height="300px"
+                 width="300px"              
             />
             <div> 
                 {types?.map((type) => { 

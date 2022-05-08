@@ -21,7 +21,7 @@ export default function Detail(props){
                 <div>
                     <div>Nombre:{myPokemon[0].name}</div>
                     <div>Número de Pokemon:{myPokemon[0].id}</div>
-                    <div><img src={myPokemon[0].imagen} alt="Image" /></div>
+                    <div><img src={myPokemon[0].imagen} alt="Imagen" /></div>
                     <div>Vida:{myPokemon[0].hp}</div>
                     <div>Fuerza:{myPokemon[0].attack}</div>
                     <div>Defensa:{myPokemon[0].defense}</div>
@@ -29,7 +29,7 @@ export default function Detail(props){
                     <div>Peso:{myPokemon[0].weight}</div> 
                     <div>Velocidad:{myPokemon[0].speed}</div>                   
                     <div>Tipo: {myPokemon[0].types?.map((type) => {
-                           return ( capitalizarPrimeraLetra(type)+ ", ");})}</div>
+                           return ( type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type));}).join(", ")}</div>
                 </div> : <p>Loading...</p>
             }
         <Link to='/home'><button>Volver</button></Link>

@@ -4,13 +4,14 @@ import LandingPage from './componentes/LandingPage';
 import Home from './componentes/Home'; 
 import PokemonCreate from './componentes/PokemonCreate';
 import Detail from './componentes/Detail';
+import Nav from './componentes/Nav';
 
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <h1>Henry Pokemon</h1>
+      <Nav/>
       <Routes>
            <Route exact path='/' element={ <LandingPage/> } />
            <Route path='/home' element={ <Home/> } />
