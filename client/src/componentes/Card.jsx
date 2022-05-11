@@ -1,19 +1,23 @@
 import React from "react";
-import { capitalizarPrimeraLetra } from "../utils"
+import { capitalizarPrimeraLetra } from "../utils";
+import '../Estilos/Card.css'
 
 
-export default function Card ({name, imagen, types}){
+export default function Card ({name, imagen, types,id}){
     return(
-        <div>
-            <div>{name}</div>
+        <div className="contenedor">
+           <div><b>#{id}</b></div>
             <img src={imagen} 
+                 className="img"
                  alt = "Imagen no encontrada"   
-                 height="300px"
-                 width="300px"              
+                 height="150px"
+                 width="150px"              
             />
-            <div> 
+            <div><h3>{name}</h3></div>
+            
+            <div className="types"> 
                 {types?.map((type) => { 
-                return ( type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type))}).join(", ")}
+                return ( <p className={type}>{type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type)} </p>) })}
             </div>     
         </div>
     )

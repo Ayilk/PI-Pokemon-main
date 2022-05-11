@@ -1,17 +1,24 @@
 import React, { useEffect } from 'react';
 import { Link,useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetailPokemon } from '../actions';
+import { getDetailPokemon, clearDetailsState, trueLoader } from '../actions';
 import { capitalizarPrimeraLetra } from '../utils';
+import loading from '../imagenes/loading1.gif'
+
 
 export default function Detail(props){
     console.log(props);
+
     const dispatch = useDispatch();
     const myPokemon = useSelector(state => state.detail);
+    const loader = useSelector(state => state.loader);
+
     const {id} = useParams();
 
     useEffect(() => {
-        dispatch(getDetailPokemon(id))
+        dispatch(getDetailPokemon(id));
+        dispatch(clearDetailsState());
+        dispatch(trueLoader());
     }, [dispatch, id])
 
     return(
@@ -30,10 +37,12 @@ export default function Detail(props){
                     <div>Velocidad:{myPokemon[0].speed}</div>                   
                     <div>Tipo: {myPokemon[0].types?.map((type) => {
                            return ( type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type));}).join(", ")}</div>
-                </div> : <p>Loading...</p>
+                </div> : loader ?  <div><img src={loading} alt ="loading"/> <h1>Cargando</h1></div> : null 
             }
         <Link to='/home'><button>Volver</button></Link>
             
         </div>
     )
 }
+
+

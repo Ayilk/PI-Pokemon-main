@@ -1,0 +1,27 @@
+paleta1 = {
+    #FBAF00
+    #FFD639
+    #FFA3AF
+    #007CBE
+    #00AF54    
+}
+
+/* CSS HEX */
+--rich-black-fogra-29: #000814ff;
+--oxford-blue: #001d3dff;
+--prussian-blue: #003566ff;
+--mikado-yellow: #ffc300ff;
+--gold-web-golden: #ffd60aff;
+
+/* CSS HSL */
+--rich-black-fogra-29: hsla(216, 100%, 4%, 1);
+--oxford-blue: hsla(211, 100%, 12%, 1);
+--prussian-blue: hsla(209, 100%, 20%, 1);
+--mikado-yellow: hsla(46, 100%, 50%, 1);
+--gold-web-golden: hsla(50, 100%, 52%, 1);
+
+ff595e
+ffca3a
+8ac926
+1982c4
+6a4c93

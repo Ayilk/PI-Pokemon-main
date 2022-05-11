@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getNamePokemon } from '../actions';
+import '../Estilos/SearchBar.css'
 
 export default function SearchBar(){
     const dispatch = useDispatch();
@@ -17,18 +18,23 @@ export default function SearchBar(){
     }
 
     return(
-        <div>
+        <form className='searchContainer'>
+           <div className='searchBox'>
             <input 
+               className='searchBox'
                type='text'
-               placeholder='Buscar...'
+               placeholder='Pokemon...'
                onChange={e => handleInputChange(e)}
             />
             <button 
+               className='searchButton'
                type='submit'
                onClick={e => handleSubmit(e)} 
             >
                Buscar 
             </button>     
         </div>
+        </form>
+        
     )
 }

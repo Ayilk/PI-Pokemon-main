@@ -73,3 +73,24 @@ export function filterByType(payload){
         payload
     }
 }
+
+
+export function clearDetailsState() {
+    return {
+      type: 'CLEAR_DETAIL_STATE',
+    };
+  }
+  
+  
+  export function trueLoader() {
+    return {
+      type: "LOADER_TRUE",
+    };
+  }
+  
+  
+  export function falseLoader() {
+    return {
+      type: 'LOADER_FALSE',
+    };
+  }

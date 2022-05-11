@@ -1,0 +1,44 @@
+.contenedor-principal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    background-image: url('../imagenes/l8.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+.about{
+    background-color: #598392;
+    margin-top: 50px;                              
+    width: 1000px;
+    height: 200px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.p{
+    justify-content: flex-end;
+   text-align: justify;
+   padding: 20px;
+}
+
+.contacto{
+    display: flex;
+    flex-direction: row;
+    align-self:flex-end;
+    justify-content:flex-end;
+    margin-bottom: 8%;
+    gap: 30px;
+    border-radius: 10px;
+}

@@ -1,0 +1,23 @@
+.tira-fija{
+    background-color: whitesmoke;
+    position: sticky;
+    top: 0px;
+    flex-direction: row;
+    font-size: large;
+    display: flex ;
+    padding: 0px;
+    margin: 0px;
+    justify-content: right;
+    border-radius: 8px;
+  }
+
+  h2{
+    text-decoration: none;
+    /* border: 1px #7bc9ab solid; */
+    padding: 10px;
+  }
+ 
+  .logo{
+    position: absolute;
+    left: 50px;
+  }

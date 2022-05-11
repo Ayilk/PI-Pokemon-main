@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getTypes, postPokemon } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
+import '../Estilos/PokemonCreate.css';
 
 export default function PokemonCreate(){
     const dispatch = useDispatch();
@@ -90,9 +91,9 @@ export default function PokemonCreate(){
     }
 
     return ( 
-        <div>
+        <div className='contenedor-creation'>
             <h1>Crea tu Pokemon!!</h1>
-            <form onSubmit={e => handleSubmit(e)}>
+            <form className='form' onSubmit={e => handleSubmit(e)}>
                 
                 <label>Nombre</label>
                 <input type="text" value={input.name} name="name" placeholder="Nombre" onChange={e => handleChange(e)}/>

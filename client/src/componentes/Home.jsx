@@ -1,17 +1,21 @@
 import React, {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { filterByType, filterCreated, getPokemons, getTypes, orderByAttack, orderByName } from '../actions';
+import { filterByType, filterCreated, getPokemons, getTypes, orderByAttack, orderByName, trueLoader } from '../actions';
 import Card from './Card';
 import Paginado from './Paginado';
 import Filtros from './Filtros';
-import SearchBar from './SearchBar';
+import { capitalizarPrimeraLetra } from '../utils';
+import '../Estilos/Home.css';
+import refresh from '../imagenes/refresh.png';
+import loading from '../imagenes/loading1.gif';
 
 export default function Home(){
     const dispatch = useDispatch();
 
     const allPokemons = useSelector( state => state.pokemons );
     const allTypes = useSelector( state => state.types );
+    const loader = useSelector((state) => state.loader);
 
     const [ paginaActual, setPaginaActual ] = useState(1);
     const [ pokemonPorPagina, setPokemonPorPagina] = useState(12);
@@ -23,12 +27,14 @@ export default function Home(){
     const paginado = (numeroDePagina) => { setPaginaActual(numeroDePagina)}
 
     useEffect(() => {
+        dispatch(trueLoader())
         dispatch(getPokemons())
-        dispatch(getTypes())
+        dispatch(getTypes())        
     }, [dispatch]);
 
     function handleClick(e){
         e.preventDefault();
+        dispatch(trueLoader());
         dispatch(getPokemons());
     }
     function handleFilterCreated(e){
@@ -54,11 +60,13 @@ export default function Home(){
     }
 
     return (
-        <div>
-            <Link to='/pokemon'>Crear pokemon</Link>
+        <div className='contenedor-home'>
+           
+            
             <button onClick= {e => handleClick(e)}>
-                Volver a cargar todos los pokemons
+                <img src={refresh} height='20px' width="20px"/>
             </button>
+            
             <Filtros
                 handleFilterCreated={handleFilterCreated}
                 handleOrderByName={handleOrderByName}
@@ -66,30 +74,36 @@ export default function Home(){
                 handleFilterTypes={handleFilterTypes}
                 allTypes={allTypes}
             />
-            <SearchBar/>
-            
-                {
+            {loader? <div><img src={loading} alt ="loading"/> <h1>Cargando</h1></div>:
+            <div> 
+                <ul className='cards'> {
                     pokemonActual?.map(p => {
                         return(
-                            <div>
+                            <div >
                                 <Link to={"/home/"+ p.id}>
                                     <Card 
-                                       name={p.name}
-                                       imagen={p.imagen}
-                                       types={p.types }
+                                    id={p.id}
+                                    name={capitalizarPrimeraLetra(p.name)}
+                                    imagen={p.imagen}
+                                    types={p.types }
                                     />   
                                 </Link>
                             </div>
                         )
                     })
                 }
-
-            
+                </ul>   
+            </div>          
+            }   
             <Paginado
                  pokemonPorPagina={pokemonPorPagina}
                  allPokemons={allPokemons.length}
                  paginado={paginado}
+                 paginaActual={paginaActual}
             />     
+               
         </div>
     )
 }
+
+

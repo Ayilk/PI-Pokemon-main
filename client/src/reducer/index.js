@@ -2,7 +2,8 @@ const initialState = {
     pokemons: [],
     allPokemons: [],
     types: [],
-    detail: []
+    detail: [],
+    loader: true,
 }
 
 function rootReducer (state=initialState, action){
@@ -10,6 +11,7 @@ function rootReducer (state=initialState, action){
         case 'GET_POKEMONS':
             return {
                 ...state,
+                loader: false,
                 pokemons: action.payload,
                 allPokemons: action.payload
             }
@@ -43,35 +45,50 @@ function rootReducer (state=initialState, action){
                     ...state,
                     pokemons: sorted
                 } 
-            case 'ORDER_BY_ATTACK':
+        case 'ORDER_BY_ATTACK':
                 let sortedd = action.payload === 'asc'?
                 state.pokemons.sort((a,b) => a.attack - b.attack) : state.pokemons.sort((a,b) => b.attack-a.attack);
                 return{
                     ...state,
                     pokemons: sortedd
                 } 
-            case 'GET_NAME_POKEMON':
+        case 'GET_NAME_POKEMON':
                 return{
                     ...state,
                     pokemons: action.payload
                 } 
-            case 'POST_POKEMON':
+        case 'POST_POKEMON':
                 return {
                     ...state
                 }  
-            case 'GET_DETAIL':
+        case 'GET_DETAIL':
                 return{
                     ...state,
                     detail: action.payload
                 } 
-            case 'FILTER_BY_TYPE':
+        case 'FILTER_BY_TYPE':
                 const allPokemonns = state.allPokemons;            
                 let filteredPokemons = action.payload === "all" ? allPokemonns :
                 allPokemonns.filter(pokemon => pokemon.types.includes(action.payload));
                     return {
                         ...state,
                         pokemons: filteredPokemons,
-                    }        
+                    }  
+        case 'CLEAR_DETAIL_STATE':                        
+                return {
+                    ...state,
+                    detail: [],
+                };
+        case "LOADER_TRUE":                        
+                return {
+                    ...state,
+                    loader: true,
+                };
+        case 'LOADER_FALSE':                                      
+                return {
+                    ...state,
+                    loader: false,
+                };              
         default:
             return state
     }

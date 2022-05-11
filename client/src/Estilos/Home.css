@@ -1,0 +1,21 @@
+.contenedor-home{
+   background-color: #9c89b8;
+   background-size: auto;
+   width: 100vw;
+   
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px );
+    gap: 30px;
+    padding: 30px;
+    justify-content: center;
+    
+}
+
+@media (max-width: 560px) {
+    .cards{
+        grid-template-columns: 100%;
+    }
+}

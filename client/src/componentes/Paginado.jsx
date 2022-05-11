@@ -1,4 +1,5 @@
 import React from "react";
+import '../Estilos/Paginado.css';
 
 
 export default function Paginado({pokemonPorPagina, allPokemons, paginado, paginaActual,}) {
@@ -7,44 +8,49 @@ export default function Paginado({pokemonPorPagina, allPokemons, paginado, pagin
     numeroDePagina.push(i);
   }
   return (
-    <ul >
-      <div >
-      <button 
-        disabled={paginaActual > 1 ? false : true}
-        onClick={() => paginado(1)}
-      >
-       First
-      </button>
+    <ul className="ul">
+      <div className="div">
+          <button 
+            className="boton-paginado"
+            disabled={paginaActual > 1 ? false : true}
+            onClick={() => paginado(1)}
+          >
+          &lt;&lt;
+          </button>
 
-      <button
-        disabled={paginaActual > 1 ? false : true}
-        onClick={() => paginado(paginaActual - 1)}
-      >
-       Prev 
-      </button>
+          <button
+            className="boton-paginado"
+            disabled={paginaActual > 1 ? false : true}
+            onClick={() => paginado(paginaActual - 1)}
+          >
+          &lt; 
+          </button>
 
-      {numeroDePagina &&
-        numeroDePagina.map((number) => (
-        
-          <li  key={number}>
-            <a onClick={() => paginado(number)}>{number}</a>
-          </li>
+            {numeroDePagina &&
+              numeroDePagina.map((number) => (
+              
+                <li className="li" key={number}>
+                  <a className="link" onClick={() => paginado(number)}>{number}</a>
+                </li>
+                
+              ))}
+
+            <button
+            className="boton-paginado"
+            disabled={paginaActual < numeroDePagina.length ? false : true}
+            onClick={() => paginado(paginaActual + 1)}
+          >
+          &gt;
+          </button>
           
-        ))}
+            <button
+            className="boton-paginado"
+            disabled={paginaActual < numeroDePagina.length ? false : true}
+            onClick={() => paginado(numeroDePagina.length)}
+          >
+          &gt;&gt;
+          </button>
 
-        <button
-        disabled={paginaActual < numeroDePagina.length ? false : true}
-        onClick={() => paginado(paginaActual + 1)}
-      >
-       Next 
-      </button>
-      
-         <button
-        disabled={paginaActual < numeroDePagina.length ? false : true}
-        onClick={() => paginado(numeroDePagina.length)}
-      >
-       Last
-      </button>
       </div>   
     </ul>
   );
