@@ -1,0 +1,39 @@
+.contenedor-detail{
+    background-color: #9c89b8;
+   background-size: cover;
+   width: 100vw;
+   height: 100vw;
+    
+}
+
+.imagen-loader{
+    border-radius: 900px;
+
+}
+                
+.contenedor-info{   
+    display: grid;
+    grid-template-columns: 1fr 1fr;    
+    height: 500px;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15%;
+    padding-top: 5%;
+}
+
+.imagen-detail{
+ grid-column: 1;
+}
+
+.items-info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 50px;
+    grid-column: 2;
+}
+
+.it{
+   
+}

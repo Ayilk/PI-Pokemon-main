@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../Estilos/Nav.css'
-import logo from "../imagenes/pokeLogo6.jpg";
+import logo from "../imagenes/pokeLogos.png";
 
 
 export default function Nav(){

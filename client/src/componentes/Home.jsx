@@ -63,8 +63,8 @@ export default function Home(){
         <div className='contenedor-home'>
            
             
-            <button onClick= {e => handleClick(e)}>
-                <img src={refresh} height='20px' width="20px"/>
+            <button className='recargar' onClick= {e => handleClick(e)}>
+                <h3 className='texto-r'>Recargar</h3>
             </button>
             
             <Filtros
@@ -74,7 +74,7 @@ export default function Home(){
                 handleFilterTypes={handleFilterTypes}
                 allTypes={allTypes}
             />
-            {loader? <div><img src={loading} alt ="loading"/> <h1>Cargando</h1></div>:
+            {loader? <div><img className='imagen-loader' src={loading} alt ="loading"/> <h1>Cargando . . .</h1></div>:
             <div> 
                 <ul className='cards'> {
                     pokemonActual?.map(p => {

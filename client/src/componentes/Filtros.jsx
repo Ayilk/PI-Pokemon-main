@@ -36,7 +36,7 @@ export default function Filtros({allTypes, handleFilterCreated, handleOrderByNam
                             <option key={t.name} value={t.name}> {t.name} </option>))}
                     </select>  
                    </li>
-                   <li><SearchBar/></li>
+                   <li ><SearchBar /></li>
                 
                 
                 
