@@ -7,18 +7,16 @@
 }
 .recargar{
     background-color: #03045e;
-    color: #fff;
-    border-radius: 20px;
-    margin: 10px;
+    color: #fff;    
+    border-radius: 20px;    
     font-size: 16px;
-    height: 50px;
-    padding: 5px 30px 5px 10px;
+    height: 50px;    
 }
-.texto-r{
-    
+.texto-r{    
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 13%;
 }
 .cards {
     display: grid;
