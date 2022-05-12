@@ -24,25 +24,57 @@ export default function Detail(props){
 
     return(
         <div className='contenedor-detail'>
+            <Link to='/home'><button className='volver'>Volver</button></Link>
             {
                 myPokemon.length > 0 ?
                 <div className='contenedor-info'>
                     <div className='imagen-detail'><img src={myPokemon[0].imagen} alt="Imagen" /></div>
-                    <div className='items-info'>
-                        <div className='it'>Nombre:{capitalizarPrimeraLetra(myPokemon[0].name)}</div>
-                        <div className='it'>Número de Pokemon:{myPokemon[0].id}</div>                    
-                        <div className='it'>Vida:{myPokemon[0].hp}</div>
-                        <div className='it'>Fuerza:{myPokemon[0].attack}</div>
-                        <div className='it'>Defensa:{myPokemon[0].defense}</div>
-                        <div className='it'>Altura:{myPokemon[0].height}</div>
-                        <div className='it'>Peso:{myPokemon[0].weight}</div> 
-                        <div className='it'>Velocidad:{myPokemon[0].speed}</div>                   
-                        <div className='it'>Tipo: {myPokemon[0].types?.map((type) => {
-                            return ( type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type));}).join(", ")}</div>
-                    </div>       
+<table className='table' >  
+   <tbody>
+    <tr >
+      <th ><h3>Nombre</h3></th>
+      <td> <h1>{capitalizarPrimeraLetra(myPokemon[0].name)}</h1></td>      
+    </tr>
+    <tr>
+      <th><h3>Número de Pokemon: </h3></th>
+      <td> <h3>{myPokemon[0].id}</h3></td>      
+    </tr>
+    <tr>
+      <th><h3>Vida</h3></th>
+      <td> <h3>{myPokemon[0].hp}</h3></td>      
+    </tr>
+    <tr>
+      <th><h3>Fuerza</h3></th>
+      <td> <h3>{myPokemon[0].attack}</h3></td>      
+    </tr>
+    <tr>
+      <th><h3>Defensa</h3></th>
+      <td> <h3>{myPokemon[0].defense}</h3></td>      
+    </tr>
+    <tr>
+      <th><h3>Altura</h3></th>
+      <td> <h3>{myPokemon[0].height}</h3></td>      
+    </tr>
+    <tr>
+      <th><h3>Peso</h3></th>
+      <td> <h3>{myPokemon[0].weight}</h3></td>      
+    </tr>
+    <tr>
+      <th><h3>Velocidad</h3></th>
+      <td><h3> {myPokemon[0].speed}</h3></td>      
+    </tr>
+    <tr>
+      <th><h3>Tipo</h3></th>
+      <td> <h3>{myPokemon[0].types?.map((type) => {
+                            return ( type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type));}).join(", ")}</h3></td>      
+    </tr>
+    
+  </tbody>
+</table>
+                     
                 </div> : loader ?  <div><img className='imagen-loader' src={loading} alt ="loading"/> <h1>Cargando . . .</h1></div> : null 
             }
-        <Link to='/home'><button>Volver</button></Link>
+        
             
         </div>
     )

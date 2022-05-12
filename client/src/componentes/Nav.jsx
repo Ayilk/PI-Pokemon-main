@@ -10,11 +10,11 @@ export default function Nav(){
                 <Link to='/'>
                 <img className="logo" src={logo} width="150" height="100"/>
                 </Link>
-            <h2>
-                <Link to='/home'>Home</Link>
+            <h2 >
+                <Link className="ligas"to='/home'>Home</Link>
             </h2>
-            <h2>
-                <Link to='/pokemon'>Crear pokemon</Link>
+            <h2 >
+                <Link className="ligas" to='/pokemon'>Crear pokemon</Link>
             </h2>
            
         </div>

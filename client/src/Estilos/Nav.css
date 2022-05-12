@@ -9,12 +9,14 @@
     margin: 0px;
     justify-content: right;
     border-radius: 8px;
+    height: 100px;
   }
 
-  h2{
+  .ligas{
     text-decoration: none;
     /* border: 1px #7bc9ab solid; */
     padding: 10px;
+    color: #ffd60a;
   }
  
   .logo{

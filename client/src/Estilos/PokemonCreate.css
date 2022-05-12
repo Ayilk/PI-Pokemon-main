@@ -1,15 +1,60 @@
 .contenedor-creation{
-    background: url('../imagenes/l1.jpg');
-    background-size: cover;
-    
-    height: 100vh;
+  background-color: #9c89b8;
+  background-size: cover;
+  width: 100vw;
+  height: 100vw;
+  
+  justify-content: center;
+  align-items: center;
 }
 
-.form{
-    width: 100%;
-  margin: 0 auto;
-  display: flex;
+.contenedor-form{
+  width: 500px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30%;
+  background-color: #f0a6ca;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;  
   flex-direction: column;
-  border-radius: 8px;
-  box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.4);
+  
+}
+.form{  
+  justify-content: center;
+  align-items: center; 
+  width: 300px;
+}
+
+.label{
+font-size: 22px;
+font-weight: bold;
+}
+.input-form{
+  font-size: 1.2rem; 
+  height: 30px;
+  border-radius: 10px;
+  padding: 5px 30px 5px 10px;
+}
+.error-form{
+  margin-left: 30%;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-color: #03045e;
+color: red;
+}
+
+.volver{
+  background-color: #03045e;
+  color: #fff;
+  list-style: none;
+ text-align: center;
+  font-size: 16px;
+  padding: 5px 30px 5px 10px;
+  text-align: center;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 20px;
+  
 }

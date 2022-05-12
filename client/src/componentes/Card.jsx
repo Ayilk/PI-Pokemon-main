@@ -5,7 +5,7 @@ import '../Estilos/Card.css'
 
 export default function Card ({name, imagen, types,id}){
     return(
-        <div className="contenedor">
+        <div className="contenedor" key={id}>
            <div><b>#{id}</b></div>
             <img src={imagen} 
                  className="img"
@@ -15,9 +15,9 @@ export default function Card ({name, imagen, types,id}){
             />
             <div><h3>{name}</h3></div>
             
-            <div className="types"> 
+            <div className="types" > 
                 {types?.map((type) => { 
-                return ( <p className={type}>{type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type)} </p>) })}
+                return ( <p className={type} >{type.name? capitalizarPrimeraLetra(type.name): capitalizarPrimeraLetra(type)} </p>) })}
             </div>     
         </div>
     )

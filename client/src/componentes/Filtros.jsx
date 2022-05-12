@@ -17,8 +17,8 @@ export default function Filtros({allTypes, handleFilterCreated, handleOrderByNam
                    <li >
                     <select className="items" onChange={e => handleOrderByAttack(e)}> // Orden por Fuerza
                         <option>Ordenar por Fuerza</option>
-                        <option value='asc'>Mayor</option>
-                        <option value='desc'>Menor</option>
+                        <option value='asc'>Menor</option>
+                        <option value='desc'>Mayor</option>
                     </select>
                    </li>
                    <li >

@@ -92,41 +92,43 @@ export default function PokemonCreate(){
 
     return ( 
         <div className='contenedor-creation'>
+          <Link to='/home'><button className='volver'>Volver</button></Link>
             <h1>Crea tu Pokemon!!</h1>
-            <form className='form' onSubmit={e => handleSubmit(e)}>
+            <div className='contenedor-form'>
+            <form  className='form' onSubmit={e => handleSubmit(e)}>
                 
-                <label>Nombre</label>
-                <input type="text" value={input.name} name="name" placeholder="Nombre" onChange={e => handleChange(e)}/>
-                {errors.name && (<p>{errors.name}</p>)}
+                <label className='label'>Nombre</label>
+                <input className='input-form' type="text" value={input.name} name="name" placeholder="Nombre" onChange={e => handleChange(e)}/>
+                {errors.name && (<p className='error-form'>{errors.name}</p>)}
 
-                <label>Vida</label>
-                <input type='number' vallue={input.hp} name="hp" placeholder="VIda" onChange={e => handleChange(e)}/>
-                {errors.hp && (<p>{errors.hp}</p>)}
+                <label  className='label'>Vida</label>
+                <input className='input-form' type='number' vallue={input.hp} name="hp" placeholder="VIda" onChange={e => handleChange(e)}/>
+                {errors.hp && (<p className='error-form'>{errors.hp}</p>)} 
 
-                <label>Fuerza</label>
-                <input type='number' vallue={input.attack} name="attack" placeholder="Fuerza" onChange={e => handleChange(e)}/>
-                {errors.attack && (<p>{errors.attack}</p>)}
+                <label  className='label'>Fuerza</label>
+                <input  className='input-form' type='number' vallue={input.attack} name="attack" placeholder="Fuerza" onChange={e => handleChange(e)}/>
+                {errors.attack && (<p className='error-form'>{errors.attack}</p>)}
                
-                <label>Defensa</label>
-                <input type='number' vallue={input.defense} name="defense" placeholder="Defensa" onChange={e => handleChange(e)}/>
-                {errors.defense && (<p>{errors.defense}</p>)}
+                <label  className='label'>Defensa</label>
+                <input  className='input-form' type='number' vallue={input.defense} name="defense" placeholder="Defensa" onChange={e => handleChange(e)}/>
+                {errors.defense && (<p className='error-form'>{errors.defense}</p>)}
 
-                <label>Velocidad</label>
-                <input type='number' vallue={input.speed} name="speed" placeholder="Velocidad" onChange={e => handleChange(e)}/>
-                {errors.speed && (<p>{errors.speed}</p>)}
+                <label  className='label'>Velocidad</label>
+                <input  className='input-form' type='number' vallue={input.speed} name="speed" placeholder="Velocidad" onChange={e => handleChange(e)}/>
+                {errors.speed && (<p className='error-form'>{errors.speed}</p>)}
 
-                <label>Altura</label>
-                <input type='number' vallue={input.height} name="height" placeholder="Altura" onChange={e => handleChange(e)}/>
-                {errors.height && (<p>{errors.height}</p>)}
+                <label  className='label'>Altura</label>
+                <input className='input-form' type='number' vallue={input.height} name="height" placeholder="Altura" onChange={e => handleChange(e)}/>
+                {errors.height && (<p className='error-form'>{errors.height}</p>)}
 
-                <label>Peso</label>
-                <input type='number' vallue={input.weight} name="weight" placeholder="Peso" onChange={e => handleChange(e)}/>
-                {errors.weight && (<p>{errors.weight}</p>)}
+                <label  className='label'>Peso</label>
+                <input className='input-form' type='number' vallue={input.weight} name="weight" placeholder="Peso" onChange={e => handleChange(e)}/>
+                {errors.weight && (<p className='error-form'>{errors.weight}</p>)}
 
-                <label>Imagen</label>
-                <input type='text' vallue={input.imagen} name="imagen" placeholder="url" onChange={e => handleChange(e)}/>
+                <label  className='label'>Imagen</label>
+                <input className='input-form' type='text' vallue={input.imagen} name="imagen" placeholder="url" onChange={e => handleChange(e)}/>
                 
-                <label>Tipo</label>
+                <label  className='label'>Tipo</label>
                 <select onChange={e => handleSelect(e)}>
                 {
                     types.map((tipo, id) => {
@@ -150,7 +152,8 @@ export default function PokemonCreate(){
                 </div>  
                 <button type='submit' disabled={disabled}>Crear Pokemon!!</button>
             </form>
-           <Link to='/home'><button>Volver</button></Link>
+            </div>
+           
         </div>
     )
 }

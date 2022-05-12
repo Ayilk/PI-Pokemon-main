@@ -74,7 +74,7 @@ export default function Home(){
                 handleFilterTypes={handleFilterTypes}
                 allTypes={allTypes}
             />
-            {loader? <div><img className='imagen-loader' src={loading} alt ="loading"/> <h1>Cargando . . .</h1></div>:
+            {loader? <div><img className='imagen-loader' src={loading} alt ="loading" /> <h1>Cargando . . .</h1></div>:
             <div> 
                 <ul className='cards'> {
                     pokemonActual?.map(p => {
