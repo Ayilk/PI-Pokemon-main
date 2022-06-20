@@ -74,6 +74,12 @@ export default function Home(){
                 handleFilterTypes={handleFilterTypes}
                 allTypes={allTypes}
             />
+            <Paginado
+                 pokemonPorPagina={pokemonPorPagina}
+                 allPokemons={allPokemons.length}
+                 paginado={paginado}
+                 paginaActual={paginaActual}
+            />   
             {loader? <div><img className='imagen-loader' src={loading} alt ="loading" /> <h1>Cargando . . .</h1></div>:
             <div> 
                 <ul className='cards'> {
@@ -95,12 +101,7 @@ export default function Home(){
                 </ul>   
             </div>          
             }   
-            <Paginado
-                 pokemonPorPagina={pokemonPorPagina}
-                 allPokemons={allPokemons.length}
-                 paginado={paginado}
-                 paginaActual={paginaActual}
-            />     
+              
                
         </div>
     )
